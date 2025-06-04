@@ -1,0 +1,1296 @@
+/* Importação de fontes (Montserrat para texto, Playfair Display para títulos - como no exemplo) */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333; /* Cor de texto padrão */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: #4A2E59; /* Cor para títulos */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- ESTILO GERAL DOS BOTÕES --- */
+.btn-primary, .btn-secondary, .agendar-btn, .agendar-btn-desktop {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #8C52FF; /* Cor de destaque */
+    color: #fff;
+    border: 1px solid #8C52FF;
+}
+
+.btn-primary:hover {
+    background-color: #723CCF; /* Cor mais escura no hover */
+}
+
+.btn-secondary {
+    background-color: #FFF;
+    color: #8C52FF;
+    border: 1px solid #8C52FF;
+}
+
+.btn-secondary:hover {
+    background-color: #F0F0F0;
+}
+
+.agendar-btn {
+    background-color: #25D366; /* Verde WhatsApp */
+    color: #fff;
+    border: none;
+}
+
+.agendar-btn:hover {
+    background-color: #1DA851; /* Verde WhatsApp mais escuro */
+}
+
+
+/* --- CABEÇALHO / NAVEGAÇÃO --- */
+.header {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /* Menu fixo no topo */
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: 700;
+    color: #4A2E59; /* Cor da logo */
+    text-decoration: none;
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-menu ul li {
+    position: relative;
+    margin-left: 30px;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    color: #8C52FF; /* Cor de destaque no hover */
+}
+
+/* Dropdown para Serviços */
+.nav-menu .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-top: 3px solid #8C52FF;
+}
+
+.nav-menu .dropdown-content li {
+    margin: 0;
+}
+
+.nav-menu .dropdown-content li a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.nav-menu .dropdown-content li a:hover {
+    background-color: #f1f1f1;
+    color: #8C52FF;
+}
+
+.nav-menu .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menu-toggle {
+    display: none; /* Escondido por padrão, aparece em telas menores */
+    font-size: 28px;
+    cursor: pointer;
+    color: #4A2E59;
+}
+
+.agendar-btn-desktop {
+    margin-left: 30px;
+}
+
+
+/* --- CARROSSEL DE FOTOS (HERO SECTION) --- */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Altura do carrossel */
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-item::before { /* Overlay para melhorar a leitura do texto */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Escurece a imagem de fundo */
+    z-index: 1;
+}
+
+.carousel-caption {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.carousel-caption h2 {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.carousel-caption p {
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+/* --- SEÇÃO SOBRE NÓS --- */
+.about-us, .services-section, .contact-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.about-us h2, .services-section h2, .contact-section h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.about-us h2::after, .services-section h2::after, .contact-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 60px;
+    height: 3px;
+    background-color: #8C52FF;
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* --- SEÇÃO DE SERVIÇOS --- */
+.services-section {
+    background-color: #F8F8F8;
+    padding-bottom: 40px;
+}
+
+.service-category {
+    margin-bottom: 60px;
+    padding-top: 20px; /* Para o link âncora ter espaço */
+}
+
+.service-category h3 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #4A2E59;
+    position: relative;
+    display: inline-block;
+}
+
+.service-category h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background-color: #8C52FF;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.service-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.service-item h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #4A2E59;
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #666;
+    padding: 0 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.service-item .btn-secondary {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background-color: #2C2C2C; /* Cor de fundo escura */
+    color: #eee;
+    padding: 50px 0 20px;
+}
+
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px; /* Espaçamento entre as colunas */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px; /* Largura mínima para as colunas */
+    margin-bottom: 20px;
+}
+
+.footer-col h4 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 2px;
+    background-color: #8C52FF;
+}
+
+.footer-col p, .footer-col a {
+    font-size: 16px;
+    color: #bbb;
+    line-height: 1.8;
+    text-decoration: none;
+    display: block; /* Para que links de contato e mapas quebrem a linha */
+    margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+    color: #8C52FF;
+}
+
+.footer-col .map-link {
+    margin-top: 10px;
+    display: inline-block; /* Para o link de mapa parecer um botão */
+    padding: 8px 15px;
+    background-color: #4A2E59; /* Cor de fundo para o link do mapa */
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-col .map-link:hover {
+    background-color: #6a447c;
+}
+
+.footer-col .footer-btn-whatsapp {
+    background-color: rgba(255,255,255,0.2);
+    margin-top: 15px;
+}
+
+.footer-col .footer-btn-whatsapp:hover {
+    background-color: #1DA851;
+}
+
+.social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #2C2C2C;
+    background-color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-bottom p {
+    color: #aaa;
+    font-size: 15px;
+}
+
+/* --- WHATSAPP FLUTUANTE --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-float i {
+    margin-top: 4px;
+}
+
+.whatsapp-float:hover {
+    background-color: #1DA851;
+}
+
+
+/* --- RESPONSIVIDADE (PARA CELULARES) --- */
+@media (max-width: 768px) {
+    .header .nav-menu {
+        display: none; /* Esconde o menu desktop */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Ajuste conforme a altura do seu cabeçalho */
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding-bottom: 10px;
+    }
+
+    .header .nav-menu.active {
+        display: flex; /* Mostra o menu quando ativo */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-menu ul li {
+        margin: 0;
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-menu ul li a {
+        padding: 15px 20px;
+        display: block;
+    }
+
+    .nav-menu .dropdown-content {
+        position: static; /* Ocupa o espaço dentro do menu */
+        box-shadow: none;
+        border-top: none;
+    }
+
+    .nav-menu .dropdown-content li a {
+        padding-left: 40px; /* Recuo para submenus */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o ícone do menu sanduíche */
+    }
+
+    .agendar-btn-desktop {
+        display: none; /* Esconde o botão de agendar no desktop para mobile */
+    }
+
+    .hero-carousel {
+        height: 400px; /* Ajuste de altura para mobile */
+    }
+
+    .carousel-caption h2 {
+        font-size: 35px;
+    }
+
+    .carousel-caption p {
+        font-size: 18px;
+    }
+
+    .carousel-control {
+        font-size: 24px;
+        padding: 8px 12px;
+    }
+
+    .about-us h2, .services-section h2, .contact-section h2 {
+        font-size: 32px;
+    }
+
+    .service-category h3 {
+        font-size: 26px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr; /* Uma coluna em mobile */
+    }
+
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-col {
+        min-width: unset; /* Remove largura mínima em mobile */
+        width: 100%;
+    }
+
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+
+}
+
+/* --- SEÇÃO CONTATO --- */
+.contact-section {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 44px;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    color: #4A2E59;
+}
+
+.contact-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    width: 70px;
+    height: 4px;
+    background-color: #8C52FF;
+    border-radius: 2px;
+}
+
+.contact-section p {
+    font-size: 19px;
+    color: #666;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px; /* Aumenta o espaçamento entre as colunas */
+    margin-top: 50px;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 320px; /* Aumenta a largura mínima */
+    max-width: 550px; /* Aumenta a largura máxima para maior equilíbrio */
+    background-color: #fcfcfc; /* Fundo mais claro */
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Sombra mais suave e espalhada */
+    padding: 40px; /* Mais padding interno */
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para o hover */
+}
+
+.contact-info:hover, .contact-form:hover {
+    transform: translateY(-5px); /* Efeito de levantar no hover */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15); /* Sombra um pouco mais forte no hover */
+}
+
+.contact-info h3, .contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; /* Aumenta o tamanho do título */
+    color: #4A2E59;
+    margin-bottom: 30px; /* Mais espaço abaixo do título */
+    position: relative;
+}
+
+.contact-info h3::after, .contact-form h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 3px;
+    background-color: #8C52FF;
+    border-radius: 2px;
+}
+
+.contact-info p {
+    font-size: 18px; /* Aumenta o tamanho do texto */
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px; /* Mais espaço entre os parágrafos */
+    display: flex;
+    align-items: flex-start; /* Alinha o ícone e o texto no topo */
+    gap: 15px; /* Aumenta o espaço entre o ícone e o texto */
+}
+
+.contact-info p i {
+    color: #8C52FF;
+    font-size: 22px; /* Aumenta o tamanho do ícone */
+    margin-top: 3px; /* Pequeno ajuste vertical */
+}
+
+.social-contact {
+    margin-top: 40px; /* Mais espaço acima dos ícones sociais */
+    display: flex;
+    gap: 20px; /* Aumenta o espaçamento entre os ícones */
+}
+
+.social-contact a {
+    height: 50px; /* Aumenta o tamanho dos ícones */
+    width: 50px;
+    font-size: 25px; /* Aumenta o tamanho do ícone dentro do círculo */
+    background-color: #ffffff;
+    transition: all 0.3s ease-in-out; /* Transição mais suave */
+}
+
+.social-contact a:hover {
+    background-color: #723CCF;
+    transform: scale(1.1); /* Um pequeno zoom no hover */
+}
+
+/* Estilo do Formulário */
+.form-group {
+    margin-bottom: 25px; /* Mais espaço entre os campos do formulário */
+}
+
+.form-group label {
+    font-size: 17px; /* Aumenta o tamanho do label */
+    color: #4A2E59;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    padding: 15px; /* Aumenta o padding interno */
+    border: 1px solid #e0e0e0; /* Borda mais clara */
+    border-radius: 8px; /* Cantos mais arredondados */
+    font-size: 17px;
+    color: #333;
+    background-color: #fdfdfd; /* Fundo levemente off-white */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #8C52FF;
+    box-shadow: 0 0 8px rgba(140, 82, 255, 0.4); /* Sombra mais visível no foco */
+}
+
+.contact-form .btn-primary {
+    padding: 15px 35px; /* Aumenta o padding do botão */
+    font-size: 20px; /* Aumenta o tamanho do texto do botão */
+    border-radius: 8px; /* Cantos mais arredondados */
+    margin-top: 15px; /* Espaço acima do botão */
+}
+
+/* Google Maps */
+.map-container {
+    margin-top: 80px; /* Mais espaço acima do mapa */
+    background-color: #fcfcfc;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    padding: 40px;
+    text-align: center;
+}
+
+.map-container h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #4A2E59;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.map-container h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 50px;
+    height: 3px;
+    background-color: #8C52FF;
+    border-radius: 2px;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* --- RESPONSIVIDADE PARA GALERIA E CONTATO (ajustes finos) --- */
+@media (max-width: 992px) { /* Ajuste para tablets maiores */
+    .contact-info, .contact-form {
+        max-width: 450px;
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-section h2, .contact-section h2 {
+        font-size: 38px;
+    }
+    .gallery-section p, .contact-section p {
+        font-size: 17px;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Uma coluna em mobile */
+    }
+    .gallery-item img {
+        height: 250px; /* Ajuste de altura para mobile */
+    }
+    .gallery-overlay h3 {
+        font-size: 20px;
+    }
+    .gallery-overlay p {
+        font-size: 15px;
+    }
+    .contact-content {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    .contact-info, .contact-form {
+        max-width: 90%; /* Ocupa a largura total em mobile com margem */
+        padding: 30px;
+    }
+    .contact-info h3, .contact-form h3, .map-container h3 {
+        font-size: 26px;
+    }
+    .contact-info p {
+        font-size: 16px;
+    }
+    .form-group input, .form-group textarea {
+        font-size: 15px;
+        padding: 12px;
+    }
+    .contact-form .btn-primary {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+    .map-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-section h2, .contact-section h2 {
+        font-size: 32px;
+    }
+    .gallery-section p, .contact-section p {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+    .gallery-item img {
+        height: 200px;
+    }
+    .contact-info, .contact-form, .map-container {
+        padding: 20px;
+    }
+    .contact-info h3, .contact-form h3, .map-container h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .contact-info p {
+        font-size: 14px;
+        gap: 8px;
+    }
+    .contact-info p i {
+        font-size: 18px;
+    }
+    .social-contact {
+        gap: 15px;
+        margin-top: 30px;
+    }
+    .social-contact a {
+        height: 40px;
+        width: 40px;
+        font-size: 20px;
+    }
+}
+
+    
+/* --- SEÇÃO GALERIA --- */
+.gallery-section {
+    padding: 80px 0;
+    background-color: #F8F8F8; /* Um cinza muito claro, quase branco */
+    text-align: center;
+}
+
+.gallery-section h2 {
+    font-size: 44px; /* Aumenta um pouco o tamanho do título */
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    color: #4A2E59; /* Mantém a cor do título principal */
+}
+
+.gallery-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px; /* Desce um pouco mais a linha */
+    width: 70px; /* Alonga um pouco a linha */
+    height: 4px; /* Engrossa a linha */
+    background-color: #8C52FF; /* Cor de destaque */
+    border-radius: 2px; /* Cantos arredondados para a linha */
+}
+
+.gallery-section p {
+    font-size: 19px; /* Aumenta um pouco o texto */
+    color: #666;
+    margin-bottom: 60px; /* Mais espaço abaixo do parágrafo */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Define 3 colunas de tamanhos iguais, com espaçamento */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Mantém o espaçamento entre as imagens */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px; /* Cantos mais arredondados */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Sombra mais pronunciada e suave */
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transição mais elegante */
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px); /* Levanta um pouco mais no hover */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2); /* Sombra maior e mais escura no hover */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 280px; /* Aumenta a altura das imagens */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transição de zoom mais suave */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08); /* Zoom um pouco maior na imagem */
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%); /* Gradiente para um efeito mais moderno */
+    color: #fff;
+    padding: 20px; /* Mais padding */
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-align: left;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+    font-family: 'Playfair Display', serif; /* Mantém a fonte dos títulos */
+    font-size: 24px; /* Aumenta o tamanho do título na overlay */
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.gallery-overlay p {
+    font-size: 16px; /* Ajusta o tamanho do texto na overlay */
+    color: #eee;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* --- RESPONSIVIDADE (PARA GALERIA ESPECIFICAMENTE) --- */
+/* Ajustes para tablets (entre 769px e 1024px) */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+        gap: 25px;
+    }
+}
+
+/* Mantém o comportamento para celulares (já existente no seu CSS geral) */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 coluna em celulares */
+        gap: 20px;
+    }
+    .gallery-item img {
+        height: 220px; /* Ajuste de altura para mobile */
+    }
+}
+
+/* --- SEÇÃO DETALHES DOS SERVIÇOS (servicos.html) --- */
+.page-content-wrapper {
+    padding: 60px 0; /* Espaçamento geral para a página de detalhes */
+}
+
+.main-page-title {
+    font-size: 48px; /* Título principal da página de detalhes */
+    text-align: center;
+    margin-bottom: 60px;
+    color: #4A2E59;
+    position: relative;
+    display: inline-block; /* Para centralizar o after */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main-page-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    width: 80px; /* Linha um pouco mais longa */
+    height: 4px;
+    background-color: #8C52FF;
+    border-radius: 2px;
+}
+
+
+/* Estilo base para cada bloco de serviço */
+.service-detail {
+    display: flex;
+    align-items: center; /* Alinha verticalmente imagem e texto */
+    padding: 60px 0; /* Espaçamento vertical entre as seções */
+    border-bottom: 1px solid #e9e9e9; /* Linha divisória suave */
+    margin-bottom: 0; /* Remover margin-bottom se você tiver alguma */
+}
+
+.service-detail:last-child {
+    border-bottom: none; /* Remove a linha divisória do último item */
+}
+
+.service-detail .service-content {
+    flex: 1; /* Faz o conteúdo ocupar o espaço restante */
+    padding-right: 40px; /* Espaçamento entre texto e imagem */
+    text-align: left;
+}
+
+.service-detail .service-image {
+    flex-shrink: 0; /* Impede a imagem de encolher */
+    width: 450px; /* Largura fixa para a imagem */
+    height: 300px; /* Altura fixa para a imagem */
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra mais destacada */
+    overflow: hidden; /* Garante que a imagem arredondada não vaze */
+}
+
+.service-detail .service-image img {
+    display: block;
+    width: 100%;
+    height: 100%; /* Faz a imagem preencher a altura da div */
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+    transition: transform 0.3s ease; /* Efeito de zoom no hover */
+}
+
+.service-detail .service-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Regra para alternar a imagem para a esquerda (seções pares) */
+.service-detail.alternate {
+    flex-direction: row-reverse; /* Inverte a ordem: imagem na esquerda, texto na direita */
+}
+
+.service-detail.alternate .service-content {
+    padding-left: 40px; /* Espaçamento para o texto do lado esquerdo */
+    padding-right: 0;
+}
+
+/* Estilo para títulos e parágrafos dentro de service-detail */
+.service-detail h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; /* Tamanho maior para o título do serviço */
+    color: #4A2E59;
+    margin-bottom: 20px;
+}
+
+.service-detail p {
+    font-size: 19px; /* Tamanho maior para o texto */
+    line-height: 1.7; /* Mais espaço entre as linhas */
+    color: #666;
+    margin-bottom: 30px; /* Mais espaço antes do botão */
+}
+
+/* Estilo dos botões (reforça para garantir que o estilo padrão funcione) */
+.service-detail .btn-secondary {
+    display: inline-block;
+    padding: 14px 35px; /* Padding um pouco maior */
+    background-color: #8C52FF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold; /* Deixa o texto do botão mais encorpado */
+}
+
+.service-detail .btn-secondary:hover {
+    background-color: #723CCF;
+    transform: translateY(-3px); /* Leve levantamento no hover */
+}
+
+/* --- Carrossel na página de serviços (servicos.html) --- */
+.servicos-carousel {
+    padding: 60px 0;
+    background-color: #f8f8f8;
+    text-align: center;
+    margin-top: 60px; /* Espaçamento entre a última seção de serviço e o carrossel */
+}
+
+.servicos-carousel h2 {
+    font-size: 40px; /* Título do carrossel */
+    color: #4A2E59;
+    margin-bottom: 40px;
+}
+
+.servicos-carousel .carousel-inner {
+    height: 450px; /* Altura do carrossel */
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.servicos-carousel .carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.servicos-carousel .carousel-item.active {
+    opacity: 1;
+}
+
+.servicos-carousel .carousel-control {
+    background: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente para os botões */
+    border: none;
+    font-size: 2.5em; /* Botões maiores */
+    color: #fff; /* Cor branca para os botões */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    padding: 15px 25px; /* Padding maior */
+    border-radius: 50%; /* Botões circulares */
+    transition: background-color 0.3s ease;
+}
+
+.servicos-carousel .carousel-control:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.servicos-carousel .prev {
+    left: 20px;
+}
+
+.servicos-carousel .next {
+    right: 20px;
+}
+
+
+/* --- RESPONSIVIDADE PARA DETALHES DOS SERVIÇOS E CARROSSEL --- */
+@media (max-width: 1024px) {
+    .main-page-title {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+
+    .service-detail {
+        padding: 40px 0;
+    }
+
+    .service-detail .service-content {
+        padding-right: 20px;
+    }
+
+    .service-detail.alternate .service-content {
+        padding-left: 20px;
+    }
+
+    .service-detail .service-image {
+        width: 350px; /* Largura um pouco menor em tablets */
+        height: 250px;
+    }
+
+    .service-detail h3 {
+        font-size: 30px;
+    }
+
+    .service-detail p {
+        font-size: 17px;
+    }
+
+    .servicos-carousel .carousel-inner {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-page-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .service-detail {
+        flex-direction: column; /* Empilha imagem e texto em telas menores */
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .service-detail .service-content {
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 25px; /* Espaço entre o texto e a imagem/próxima seção */
+    }
+
+    .service-detail .service-image {
+        width: 100%; /* Imagem ocupa 100% da largura disponível */
+        height: 280px; /* Altura padrão para mobile */
+        order: -1; /* Coloca a imagem acima do texto por padrão */
+    }
+
+    /* Remove a inversão para mobile, assim a imagem fica sempre acima do texto */
+    .service-detail.alternate .service-image {
+        order: -1;
+    }
+    .service-detail.alternate .service-content {
+        padding-left: 0;
+    }
+
+    .service-detail h3 {
+        font-size: 28px;
+    }
+
+    .service-detail p {
+        font-size: 16px;
+    }
+
+    .servicos-carousel h2 {
+        font-size: 30px;
+    }
+
+    .servicos-carousel .carousel-inner {
+        height: 280px;
+    }
+
+    .servicos-carousel .carousel-control {
+        font-size: 2em;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-page-title {
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+    .main-page-title::after {
+        width: 60px;
+        bottom: -10px;
+    }
+
+    .service-detail h3 {
+        font-size: 24px;
+    }
+
+    .service-detail p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .service-detail .service-image {
+        height: 200px;
+    }
+
+    .servicos-carousel h2 {
+        font-size: 26px;
+    }
+
+    .servicos-carousel .carousel-inner {
+        height: 200px;
+    }
+
+    .servicos-carousel .carousel-control {
+        font-size: 1.8em;
+        padding: 8px 12px;
+    }
+}
